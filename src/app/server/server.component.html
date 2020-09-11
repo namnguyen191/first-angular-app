@@ -1,6 +1,12 @@
 <p
   [ngStyle]="{ backgroundColor: getColor() }"
   [ngClass]="{ online: serverStatus === 'online' }"
+  #testRef
 >
-  Server with ID: {{ serverID }} is {{ getServerStatus() }}
+  Server "{{serverName}}"" with ID: {{ serverID }} is {{ getServerStatus() }}
 </p>
+<ng-content></ng-content>
+
+<button class="btn btn-danger" (click)="onDeleteServer()">
+  Delete
+</button>

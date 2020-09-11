@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -11,6 +11,9 @@ export class ServersComponent implements OnInit {
   serverName = 'Test Server';
   serverCreated = false;
   servers = ['Test Server 1', 'Test Server 2'];
+
+  @ViewChild('serverIdInput', { static: true })
+  serverIdIn;
 
   constructor() {
     setTimeout(() => {
@@ -29,5 +32,9 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName(event: any) {
     this.serverName = event.target.value;
+  }
+
+  onServerDeleted(serverName: string) {
+    this.servers.splice(this.servers.indexOf(serverName), 1);
   }
 }
