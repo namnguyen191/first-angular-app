@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
@@ -15,13 +16,18 @@ export class ServersComponent implements OnInit {
   @ViewChild('serverIdInput', { static: true })
   serverIdIn;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.clear();
+    this.route.data.subscribe((data: Data) => {
+      console.log(data['server']);
+    });
+  }
 
   onCreateServer() {
     this.serverCreationStatus =
