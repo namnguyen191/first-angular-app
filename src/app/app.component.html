@@ -15,6 +15,12 @@
           >Router Demo</a
         >
       </li>
+      <li routerLinkActive="active">
+        <a
+          [routerLink]="['/form']"
+          >Reactive Form Demo</a
+        >
+      </li>
     </ul>
   </div>
 </nav>
@@ -32,8 +38,7 @@
     </div>
   </div>
 </div>
-
-<h1 appBasicHighLight>Directive Demonstration</h1>
+<!-- <h1 appBasicHighLight>Directive Demonstration</h1>
 <h1 [appBetterHighlight]="'red'" [defaultColor]="'yellow'">
   A Better Directive Demonstration
 </h1>
@@ -42,4 +47,4 @@
   <p *ngSwitchCase="'Nam'">This is Nam</p>
   <p *ngSwitchCase="'Chau'">This is Chau</p>
   <p *ngSwitchDefault>UnKnow Person</p>
-</span>
+</span> -->
