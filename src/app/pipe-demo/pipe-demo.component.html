@@ -1,0 +1,16 @@
+<h1>My first name is: {{ firstName | uppercase }}</h1>
+<h1>My date of birth is: {{ dob | date: "fullDate" | uppercase }}</h1>
+<h1>{{ msg | shorten: 12 }}</h1>
+<hr />
+<label for="filter">Filter: </label>
+<input type="text" id="filter" [(ngModel)]="filteredName" />
+<br />
+<br />
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let name of names | filter: filteredName">
+    <h3>{{ name }}</h3>
+  </li>
+</ul>
+<hr>
+<h1>Fetched Names:</h1>
+<h3 *ngFor="let fetchName of fetchNames | async">{{fetchName}}</h3>

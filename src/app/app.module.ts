@@ -16,6 +16,9 @@ import { AuthGuard } from './auth-guard.service';
 import { ReactiveFormDemoComponent } from './reactive-form-demo/reactive-form-demo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { ShortenPipe } from './pipe-demo/shorten.pipe';
+import { FilterPipe } from './pipe-demo/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     UnlessDirective,
     RouterDemoComponent,
     PageNotFoundComponent,
-    ReactiveFormDemoComponent
+    ReactiveFormDemoComponent,
+    PipeDemoComponent,
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -9,17 +9,17 @@
       </li>
       <li routerLinkActive="active">
         <a
-          [routerLink]="['/demo']"
+          [routerLink]="['/router-demo']"
           [queryParams]="{ allowEdit: '1' }"
           [fragment]="'loading'"
           >Router Demo</a
         >
       </li>
       <li routerLinkActive="active">
-        <a
-          [routerLink]="['/form']"
-          >Reactive Form Demo</a
-        >
+        <a [routerLink]="['/form']">Reactive Form Demo</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/pipe-demo']">Pipe Demo</a>
       </li>
     </ul>
   </div>
@@ -29,10 +29,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h3>I'm in the AppComponent!</h3>
-      <button
-        class="btn btn-primary"
-        (click)="logIn()"
-      >Log In</button>
+      <button class="btn btn-primary" (click)="logIn()">Log In</button>
       <hr />
       <router-outlet></router-outlet>
     </div>
