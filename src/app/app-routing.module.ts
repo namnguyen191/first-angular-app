@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.service';
+import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ReactiveFormDemoComponent } from './reactive-form-demo/reactive-form-demo.component';
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     children: [{ path: 'nested', component: RouterDemoComponent }],
   },
   { path: 'pipe-demo', component: PipeDemoComponent},
+  { path: 'http-demo', component: HttpDemoComponent},
   { path: 'form', component: ReactiveFormDemoComponent },
   { path: 'not-found', component: PageNotFoundComponent, data: { msg: 'Page Not Found'} },
   { path: 'something', redirectTo: '/not-found' },

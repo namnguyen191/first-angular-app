@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -19,6 +20,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ShortenPipe } from './pipe-demo/shorten.pipe';
 import { FilterPipe } from './pipe-demo/filter.pipe';
+import { HttpDemoComponent } from './http-demo/http-demo.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { LoggingInterceptorService } from './services/logging-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { FilterPipe } from './pipe-demo/filter.pipe';
     ReactiveFormDemoComponent,
     PipeDemoComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    HttpDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +47,23 @@ import { FilterPipe } from './pipe-demo/filter.pipe';
     FormsModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    // The order that you provide the interceptor matter
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
